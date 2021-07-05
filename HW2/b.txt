@@ -1,0 +1,17 @@
+	r1 <- r2 - r2
+	NOOP
+	NOOP
+	r2 <- r1 + 1
+	r3 <- r1 + 03
+	NOOP
+loop	r5 <- r2 + 10
+	r3 <- r3 - 1
+	NOOP
+	r4 <- r4 + 1
+	r5 <- r3 + r5
+	r2 <- r2 - 1
+	bnz loop
+	r5 <- r5 + 10
+	r4 <- r1 - r1
+	r3 <- r1 - r1
+	store[r6+8]<-r5

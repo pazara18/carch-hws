@@ -1,0 +1,51 @@
+Main memory: 1Mib = 2^20 2^8
+Block size: 16 byte
+Cache memory: 4Kib = 2^8 = 256 frames f = 8 
+Address: a = 20 bits w = 4 bits main memory contains 2^16 blocks b = 16
+t = 8 f = 8 w = 4
+a[0]: t = 00000001 f = 10000010 w = 1111
+a[1-8]: t = 00000001 f= 10000011 w = 0000 - 0111
+b[0]: t = 00000011 f = 10000010 w = 1111
+b[1-8]: t = 00000011 f = 10000011 w = 0000 - 0111
+c[0-8]: t = 00000111 f = 10000010 w = 0111 - 1111
+
+1st iteration
+read a miss 
+frame number 130 -> a[0]
+read b miss
+frame number 130 -> b[0]
+read a miss
+frame number 130 -> a[0]
+read c miss
+frame number 130 -> c[0-8]
+
+2nd iteration
+read a miss
+frame number 131 -> a[1-8]
+read b miss
+frame number 131 -> b[1-8]
+read a miss
+frame number 131 -> a[1-8]
+read c hit
+
+iterations after 2nd
+read a hit
+read b miss
+frame number 131 -> b[1-8]
+read a miss 
+frame number 131 -> a[1-8]
+read c hit
+
+final iteration
+read a hit
+read b miss
+frame number 131 -> b[1-8]
+read a miss
+frame number 131 -> a[1-8]
+read c miss
+frame number 131 -> c[9]
+ 
+15 hit 21 miss
+
+
+
